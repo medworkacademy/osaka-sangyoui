@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>大阪産業医事務所</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Hiragino Kaku Gothic ProN','Hiragino Sans','Yu Gothic','Meiryo',sans-serif;font-size:16px;line-height:1.8;color:#2c2c2c;background:#fff}
+img{max-width:100%}
+a{color:inherit;text-decoration:none}
+:root{--navy:#1a3557;--navy-dark:#122540;--teal:#2a7a8c;--teal-light:#e8f4f7;--accent:#c0392b;--gray-bg:#f7f8fa;--gray-line:#e0e4ea;--text-sub:#666}
+header{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--navy);padding:0 32px;height:64px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 12px rgba(0,0,0,.18)}
+.logo{color:#fff;font-size:15px;font-weight:700;letter-spacing:.04em;white-space:nowrap}
+.logo span{display:inline-block;background:var(--teal);color:#fff;font-size:11px;font-weight:600;padding:2px 8px;border-radius:3px;margin-right:10px;letter-spacing:.06em;vertical-align:middle}
+nav{display:flex;gap:28px}
+nav a{color:rgba(255,255,255,.85);font-size:13px;font-weight:500;padding:4px 0;border-bottom:2px solid transparent;transition:all .2s}
+nav a:hover{color:#fff;border-bottom-color:var(--teal)}
+.fixed-cta{position:fixed;bottom:28px;right:28px;z-index:200;background:var(--accent);color:#fff;padding:14px 22px;border-radius:40px;font-size:14px;font-weight:700;box-shadow:0 4px 20px rgba(192,57,43,.45);transition:transform .2s,box-shadow .2s}
+section{padding:96px 0}
+.container{max-width:900px;margin:0 auto;padding:0 32px}
+.section-label{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.14em;color:var(--teal);text-transform:uppercase;margin-bottom:12px}
+.section-title{font-size:28px;font-weight:800;color:var(--navy);line-height:1.4;margin-bottom:48px}
+.section-title::after{content:'';display:block;width:40px;height:3px;background:var(--teal);margin-top:14px}
+#firstview{background:linear-gradient(135deg,var(--navy-dark) 0%,var(--navy) 55%,var(--teal) 100%);min-height:100vh;display:flex;align-items:center;padding:120px 0 80px;position:relative;overflow:hidden}
+.fv-inner{position:relative;z-index:1}
+.fv-tag{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.35);color:#fff;font-size:13px;font-weight:700;padding:6px 16px;border-radius:20px;margin-bottom:28px}
+.fv-catch{font-size:44px;font-weight:900;color:#fff;line-height:1.25;margin-bottom:24px}
+.fv-sub{font-size:18px;color:rgba(255,255,255,.88);line-height:1.8;margin-bottom:14px;max-width:560px}
+.fv-note{font-size:14px;color:rgba(255,255,255,.65);margin-bottom:44px;max-width:520px;line-height:1.7}
+.fv-buttons{display:flex;gap:16px;flex-wrap:wrap}
+.btn-primary{background:var(--accent);color:#fff;padding:16px 30px;border-radius:6px;font-size:15px;font-weight:700;box-shadow:0 4px 16px rgba(192,57,43,.4);transition:all .2s;cursor:pointer;border:none}
+.btn-outline{background:transparent;color:#fff;padding:16px 30px;border-radius:6px;font-size:15px;font-weight:600;border:2px solid rgba(255,255,255,.5);transition:all .2s;cursor:pointer}
+#pain{background:var(--gray-bg)}
+.pain-list{list-style:none;display:grid;gap:16px}
+.pain-list li{background:#fff;border-left:4px solid var(--teal);padding:18px 22px;border-radius:0 6px 6px 0;font-size:15px;line-height:1.7;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.pain-bridge{margin-top:40px;background:var(--navy);color:#fff;padding:22px 28px;border-radius:8px;font-size:16px;font-weight:600;text-align:center}
+#strength{background:#fff}
+.strength-cards{display:grid;gap:36px}
+.strength-card{border:1px solid var(--gray-line);border-radius:10px;overflow:hidden}
+.strength-card-header{background:var(--navy);color:#fff;padding:20px 28px;display:flex;align-items:center;gap:14px}
+.strength-num{width:36px;height:36px;background:var(--teal);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:800;flex-shrink:0}
+.strength-card-header h3{font-size:17px;font-weight:700;line-height:1.4}
+.strength-card-body{padding:28px}
+.strength-card-body p{font-size:15px;line-height:1.85;color:#3a3a3a;margin-bottom:16px}
+.strength-highlight{background:var(--teal-light);border-radius:6px;padding:16px 20px;font-size:15px;font-weight:700;color:var(--teal);margin:12px 0;border-left:3px solid var(--teal)}
+.strength-bullets{list-style:none;margin-top:16px;display:grid;gap:10px}
+.strength-bullets li{padding-left:20px;position:relative;font-size:15px;line-height:1.7}
+.strength-bullets li::before{content:'\u25b6';position:absolute;left:0;color:var(--teal);font-size:11px;top:5px}
+.strength-bullets strong{color:var(--navy)}
+.sub-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:4px}
+.sub-card{background:var(--gray-bg);border-radius:8px;padding:20px}
+.sub-card h4{font-size:13px;font-weight:700;color:var(--teal);margin-bottom:8px}
+.sub-card p{font-size:14px;line-height:1.7;color:#444}
+#service{background:var(--gray-bg)}
+.service-grid{display:grid;gap:24px}
+.service-card{background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.06)}
+.service-card-header{background:var(--teal);color:#fff;padding:16px 24px;font-size:14px;font-weight:700}
+.service-card-body{padding:24px}
+.service-card-body h3{font-size:20px;font-weight:800;color:var(--navy);margin-bottom:10px}
+.service-tag{display:inline-block;background:var(--teal-light);color:var(--teal);font-size:12px;font-weight:700;padding:4px 10px;border-radius:4px;margin-bottom:14px}
+.service-desc{font-size:14px;line-height:1.8;color:#444;margin-bottom:16px}
+.service-price{background:var(--gray-bg);border-radius:6px;padding:14px 18px;margin-top:14px}
+.service-price-item{font-size:14px;line-height:1.9;color:#333}
+.service-price-item strong{color:var(--navy)}
+.service-note{font-size:12px;color:var(--text-sub);margin-top:10px}
+.service-add{margin-top:8px;font-size:13px;color:var(--teal);font-weight:600}
+.free-note{margin-top:24px;padding:14px 20px;background:#fff8f0;border-left:4px solid #e67e22;border-radius:0 6px 6px 0;font-size:14px;color:#7d4e00}
+#cases{background:#fff}
+.cases-table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:14px}
+thead tr{background:var(--navy);color:#fff}
+thead th{padding:14px 20px;text-align:left;font-weight:700}
+tbody tr{border-bottom:1px solid var(--gray-line)}
+tbody tr:nth-child(even){background:var(--gray-bg)}
+tbody td{padding:14px 20px}
+#flow{background:var(--gray-bg)}
+.flow-steps{display:grid;grid-template-columns:repeat(4,1fr);position:relative}
+.flow-step{text-align:center;padding:0 12px;position:relative;z-index:1}
+.flow-num{width:72px;height:72px;background:var(--navy);color:#fff;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;margin:0 auto 16px;font-size:11px;font-weight:700;border:3px solid #fff;box-shadow:0 0 0 3px var(--teal)}
+.flow-num span{font-size:18px;font-weight:900;line-height:1}
+.flow-step h4{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:8px}
+.flow-step p{font-size:13px;color:var(--text-sub);line-height:1.65}
+#profile{background:#fff}
+.profile-inner{display:grid;grid-template-columns:220px 1fr;gap:48px;align-items:start}
+.profile-photo{background:var(--gray-bg);border-radius:10px;aspect-ratio:3/4;display:flex;align-items:center;justify-content:center;color:var(--text-sub);font-size:13px;border:1px dashed var(--gray-line)}
+.profile-name{font-size:26px;font-weight:900;color:var(--navy);margin-bottom:4px}
+.profile-title{font-size:14px;color:var(--teal);font-weight:600;margin-bottom:16px}
+.profile-quals{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+.qual-badge{background:var(--teal-light);color:var(--teal);font-size:12px;font-weight:700;padding:4px 10px;border-radius:4px;border:1px solid rgba(42,122,140,.25)}
+.profile-section{margin-bottom:20px}
+.profile-section h4{font-size:13px;font-weight:700;color:var(--text-sub);letter-spacing:.08em;margin-bottom:8px;text-transform:uppercase}
+.profile-section p{font-size:14px;line-height:1.85;color:#3a3a3a}
+.profile-message{background:var(--gray-bg);border-radius:8px;padding:22px 24px;font-size:14px;line-height:1.9;color:#3a3a3a;margin-bottom:20px}
+.profile-message strong{color:var(--navy)}
+#faq{background:var(--gray-bg)}
+.faq-list{display:grid;gap:12px}
+.faq-item{background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 1px 6px rgba(0,0,0,.04)}
+.faq-q{padding:18px 22px;font-size:15px;font-weight:700;color:var(--navy);display:flex;gap:12px;align-items:flex-start;cursor:pointer}
+.faq-q-mark{width:24px;height:24px;background:var(--teal);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;flex-shrink:0;margin-top:1px}
+.faq-a{padding:0 22px 18px 58px;font-size:14px;line-height:1.8;color:#444}
+#contact{background:var(--navy)}
+#contact .section-title{color:#fff}
+#contact .section-title::after{background:var(--teal)}
+.contact-lead{color:rgba(255,255,255,.8);font-size:15px;margin-bottom:36px}
+.contact-form{display:grid;gap:16px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form-group{display:flex;flex-direction:column;gap:6px}
+.form-group label{font-size:13px;font-weight:600;color:rgba(255,255,255,.75)}
+.form-group input,.form-group select,.form-group textarea{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:6px;padding:12px 14px;font-size:14px;color:#fff;font-family:inherit;transition:border-color .2s}
+.form-group input::placeholder,.form-group textarea::placeholder{color:rgba(255,255,255,.35)}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:var(--teal);background:rgba(255,255,255,.14)}
+.form-group select option{background:var(--navy);color:#fff}
+.form-submit{background:var(--accent);color:#fff;border:none;padding:16px 40px;border-radius:6px;font-size:16px;font-weight:700;cursor:pointer;letter-spacing:.06em;transition:all .2s;margin-top:8px;width:fit-content}
+footer{background:var(--navy-dark);color:rgba(255,255,255,.5);text-align:center;padding:28px 32px;font-size:13px}
+@media(max-width:768px){header{padding:0 16px}nav{display:none}.fv-catch{font-size:30px}.flow-steps{grid-template-columns:1fr 1fr}.profile-inner{grid-template-columns:1fr}.sub-cards{grid-template-columns:1fr}.form-row{grid-template-columns:1fr}section{padding:64px 0}}
+</style></head>
+<body>
+<header><div class="logo"><span>精神科医 × 産業医</span>大阪産業医事務所</div><nav><a href="#service">サービス</a><a href="#strength">選ばれる理由</a><a href="#cases">契約事例</a><a href="#profile">代表プロフィール</a><a href="#faq">よくある質問</a><a href="#contact">お問い合わせ</a></nav></header>
+<a href="#contact" class="fixed-cta">初回30分 無料相談を申し込む →</a>
+<section id="firstview"><div class="container"><div class="fv-inner"><div class="fv-tag">精神科医 × 産業医</div><h1 class="fv-catch">休職・復職の判断を、<br>人事だけに背負わせない。</h1><p class="fv-sub">病状の判断と、職場での現実——その両方を踏まえて、<br>人事担当者の対応方針を一緒に整理します。</p><p class="fv-note">主治医が知ることのない、社内での言動・人間関係・業務実態を踏まえて判断します。</p><div class="fv-buttons"><a href="#contact" class="btn-primary">初回30分 無料相談を申し込む →</a><a href="#service" class="btn-outline">サービス詳細を見る →</a></div></div></div></section>
+<section id="pain"><div class="container"><span class="section-label">こんな状況が続いていませんか？</span><h2 class="section-title">人事担当者が<br>一人で抱えている問題</h2><ul class="pain-list"><li>主治医は「復職可能」と言う。でも、本当に今の職場に戻せるかどうかが判断できない</li><li>本人は「戻りたい」と言う。現場は「まだ不安」と言う。最終的な決断は、人事がしなければならない</li><li>産業医に相談しても「様子を見てください」で終わり、次の一手が見えない</li><li>管理職から「どう対応すればいいか」と相談が来ても、明確な答えを持てない</li><li>休職が長引くたびに、採用・育成コストの損失が積み上がっていく</li><li>ストレスチェックの結果は出た。でも職場改善にどう使えばいいかわからないまま、また一年が過ぎた</li></ul><div class="pain-bridge">その孤独な判断の重さは、産業医との関わり方を変えることで、解消できます。</div></div></section>
+<section id="strength"><div class="container"><span class="section-label">Why Choose Us</span><h2 class="section-title">大阪産業医事務所が<br>選ばれる理由</h2><div class="strength-cards"><div class="strength-card"><div class="strength-card-header"><div class="strength-num">1</div><h3>精神科医だから、主治医とは違う視点で判断できる</h3></div><div class="strength-card-body"><p>主治医は患者さん側の視点に立ち、回復を支援する立場です。産業医は、会社と職場の現実を踏まえて判断する立場。同じケースでも、見ている視点がそもそも違います。</p><p>代表は精神科医として、うつ病・適応障害・発達障害など多様な疾患を職場という文脈で判断してきた経験を持ちます。</p><div class="strength-highlight">「この不調はどこまで治療に任せるべきか、どこから職場で対応すべきか」——この判断軸を持てるかどうかが、対応の方向性を大きく左右します。</div></div></div><div class="strength-card"><div class="strength-card-header"><div class="strength-num">2</div><h3>「様子を見ましょう」で終わらせない。人事を一人にしない。</h3></div><div class="strength-card-body"><p>大阪産業医事務所は、担当企業を深く知った上で長期的に関わることを前提としています。</p><div class="strength-highlight">継続契約の企業が多く、10年以上継続している企業も複数あります。</div><ul class="strength-bullets"><li><strong>問題が起きたときに一緒に動く</strong>：何かあったとき、すぐ連絡できる医師がいる安心感</li><li><strong>積み上げてきた経緯が続く</strong>：人事担当者が変わっても、産業医は変わらない</li><li><strong>板挟みを整理する</strong>：主治医・本人・現場・会社——それぞれの立場を整理し、人事が根拠ある判断を下せるように支えます</li></ul></div></div><div class="strength-card"><div class="strength-card-header"><div class="strength-num">3</div><h3>企業の状況に合わせた支援</h3></div><div class="strength-card-body"><div class="sub-cards"><div class="sub-card"><h4>中小企業・ベンチャーの方へ</h4><p>プログラムの整備から一緒に取り組みます。</p></div><div class="sub-card"><h4>産業保健体制を強化したい大企業の方へ</h4><p>精神科専門医を追加することで、メンタル対策を専門化できます。</p></div></div></div></div></div></div></section>
+<section id="service"><div class="container"><span class="section-label">Service</span><h2 class="section-title">あなたの状況に合った<br>プランを選んでください</h2><div class="service-grid"><div class="service-card"><div class="service-card-header">▶ 産業医を探している・または変更を検討している</div><div class="service-card-body"><h3>嘱託産業医契約（月1回訪問）</h3><div class="service-tag">従業員50人以上 ／ 産業医変更 ／ 精神科専門医を迎えたい</div><p class="service-desc">法定業務に加え、継続的なフォロー・管理職への助言・再発防止対策まで対応します。すでに産業医がいる場合も、精神科専門医として追加契約が可能です。</p><div class="service-price"><div class="service-price-item">従業員 50〜100人：<strong>80,000円（税込88,000円）〜／月</strong></div><div class="service-price-item">従業員 100〜200人：<strong>110,000円（税込121,000円）〜／月</strong></div><div class="service-price-item">従業員 200人以上：<strong>別途お見積り</strong></div><div class="service-add">追加・延長対応：16,500円（税込）／30分</div><div class="service-note">訪問時交通費：別途実費</div></div></div></div><div class="service-card"><div class="service-card-header">▶ 産業保健体制を強化したい・週1回の専門医関与を検討している</div><div class="service-card-body"><h3>嘱託産業医契約（週1回訪問）</h3><div class="service-tag">大規模事業場 ／ 精神科専門医を本格的に組み込みたい</div><p class="service-desc">既存の産業医体制はそのままに、精神科専門医を追加することも可能です。</p><div class="service-price"><div class="service-price-item">料金：<strong>別途お見積り</strong></div><div class="service-note">訪問時交通費：別途実費</div></div></div></div><div class="service-card"><div class="service-card-header">▶ 従業員50人未満、または選任義務がない</div><div class="service-card-body"><h3>顧問契約（従業員50人未満）</h3><div class="service-tag">選任義務はないが専門家に相談したい ／ 将来の義務化に備えたい</div><p class="service-desc">訪問は原則不要ですが、メール・電話でのご相談に月3件まで対応します。</p><div class="service-price"><div class="service-price-item"><strong>30,000円（税込33,000円）〜／月</strong></div></div></div></div><div class="service-card"><div class="service-card-header">▶ 管理職のメンタル対応力を底上げしたい</div><div class="service-card-body"><h3>ラインケア研修</h3><div class="service-tag">管理職のメンタル不調対応力を強化したい</div><p class="service-desc">精神科医の視点から、明日から使える判断軸を渡す実践的な研修です。</p><div class="service-price"><div class="service-price-item"><strong>70,000円（税込77,000円）〜／回　｜　1時間30分</strong></div><div class="service-note">対面推奨・オンライン可</div></div></div></div><div class="service-card"><div class="service-card-header">▶ 今すぐ対応が必要な案件がある・まず試してみたい</div><div class="service-card-body"><h3>スポット相談（緊急・単発対応）</h3><div class="service-tag">今すぐ医師の判断が必要 ／ 契約前に試したい</div><p class="service-desc">今すぐ医師に判断を仰ぎたい緊急案件に対応します。</p><div class="service-price"><div class="service-price-item"><strong>30,000円（税込33,000円）／30分</strong></div><div class="service-note">オンライン・訪問対応</div></div><div class="free-note">※サービスの概要を知りたい方・検討段階の方は、<strong>初回30分の無料相談</strong>をご活用ください。</div></div></div></div></div></section>
+<section id="cases"><div class="container"><span class="section-label">Cases</span><h2 class="section-title">業種・企業規模別<br>契約事例</h2><div class="cases-table-wrap"><table><thead><tr><th>業種</th><th>従業員規模</th><th>契約プラン</th></tr></thead><tbody><tr><td>製造業</td><td>約2,000名</td><td>週1回訪問・精神科専門産業医サポート</td></tr><tr><td>製造業</td><td>約500名</td><td>週1回訪問・嘱託産業医契約</td></tr><tr><td>飲食業</td><td>200名未満</td><td>月1回訪問・嘱託産業医契約</td></tr><tr><td>IT業</td><td>150名未満</td><td>月1回訪問・嘱託産業医契約</td></tr><tr><td>IT業</td><td>50名未満</td><td>顧問契約</td></tr></tbody></table></div></div></section>
+<section id="flow"><div class="container"><span class="section-label">Flow</span><h2 class="section-title">ご利用の流れ</h2><div class="flow-steps"><div class="flow-step"><div class="flow-num">STEP<span>01</span></div><h4>お問い合わせ</h4><p>フォームよりご連絡ください。従業員規模・現在の課題をお知らせください。</p></div><div class="flow-step"><div class="flow-num">STEP<span>02</span></div><h4>初回無料相談</h4><p>貴社の状況と課題をお聞きします。（30分）</p></div><div class="flow-step"><div class="flow-num">STEP<span>03</span></div><h4>ご提案・お見積り</h4><p>従業員規模・訪問頻度をもとに契約内容をご提案します。</p></div><div class="flow-step"><div class="flow-num">STEP<span>04</span></div><h4>契約締結・業務開始</h4><p>業務委託契約を締結後、産業医業務を開始します。</p></div></div></div></section>
+<section id="profile"><div class="container"><span class="section-label">Profile</span><h2 class="section-title">代表プロフィール</h2><div class="profile-inner"><div class="profile-photo">（顔写真）</div><div><div class="profile-name">菅谷 真之</div><div class="profile-title">精神科医 / 産業医　すがや まさゆき</div><div class="profile-quals"><span class="qual-badge">日本医師会認定産業医</span><span class="qual-badge">精神保健指定医</span><span class="qual-badge">コンサータ登録医</span></div><div class="profile-section"><h4>経歴</h4><p>大阪公立大学医学部卒業後、精神科医として複数の医療機関に勤務。精神科副院長を経て、大手製造業よりスカウトを受け、産業医として企業の産業保健活動に本格的に携わる。以来、製造業・食品業など業種を問わず、複数の大手企業において産業医として活動。特にメンタル領域の対応困難例・再発予防・管理職支援に豊富な経験を持つ。年間500件超の面談を重ね、看護学校での講師経験も持つ。精神保健指定医の取得には5年以上の臨床経験に加え、多様な疾患への対応実績が必要とされます。その経験の幅が、産業医面談での判断の精度を支えています。</p></div><div class="profile-message">精神科と産業医の両方の現場を見てきた中で、気づいたことがあります。<strong>メンタル不調対応で判断を迫られるとき、最も孤独にされているのは、人事担当者だ</strong>ということです。主治医・本人・現場・経営陣——それぞれの立場が違う中で、最終的な判断を下さなければならない。だからこそ、医師が直接・深く関与する体制にこだわっています。継続契約の企業が多く、10年以上継続している企業も複数あります。</div><div class="profile-section"><h4>ポリシー</h4><p>不調者への適切な配慮と、職場全体の公平性のバランスを保つことを大切にしています。産業医はすべての従業員の健康に責任を持つという立場から、個人の回復だけでなく、職場全体が健全に機能し続けることを目指しています。</p></div><div class="profile-section"><h4>研鑽</h4><p>井上幸紀教授（大阪公立大学大学院医学研究科神経精神医学・日本産業衛生学会理事・日本産業精神保健学会理事）よりご指導を受けた経験を持つ。</p></div></div></div></div></section>
+<section id="faq"><div class="container"><span class="section-label">FAQ</span><h2 class="section-title">よくある質問</h2><div class="faq-list"><div class="faq-item"><div class="faq-q"><span class="faq-q-mark">Q</span>対応エリアはどこですか？</div><div class="faq-a">大阪府内を中心に対応しています。オンライン面談・相談はエリア問わず対応可能です。</div></div><div class="faq-item"><div class="faq-q"><span class="faq-q-mark">Q</span>何人から契約できますか？</div><div class="faq-a">従業員50人以上の事業場から嘱託産業医契約を承っています。50人未満の事業場は顧問契約、単発のご相談はスポット相談をご利用ください。</div></div><div class="faq-item"><div class="faq-q"><span class="faq-q-mark">Q</span>既に産業医がいますが、相談できますか？</div><div class="faq-a">可能です。既存の産業医体制に加えて、精神科専門のサポートとしてご契約いただいている企業もあります。</div></div><div class="faq-item"><div class="faq-q"><span class="faq-q-mark">Q</span>従業員50人未満ですが、契約できますか？</div><div class="faq-a">できます。50人未満の事業場向けに顧問契約をご用意しています。将来的な選任義務に備えた体制づくりにもご活用いただけます。</div></div><div class="faq-item"><div class="faq-q"><span class="faq-q-mark">Q</span>スポット相談はどんな場合に使えますか？</div><div class="faq-a">「今すぐ対応が必要だが契約するほどではない」「緊急の休職・復職案件で医師の判断が欲しい」といった場合にご利用いただけます。オンライン・訪問どちらにも対応しています。</div></div><div class="faq-item"><div class="faq-q"><span class="faq-q-mark">Q</span>初回無料相談では何を話しますか？</div><div class="faq-a">貴社の従業員規模・現在の課題・産業医に期待する役割をお聞きします。契約後の支援イメージをご説明します。</div></div></div></div></section>
+<section id="contact"><div class="container"><span class="section-label" style="color:rgba(255,255,255,0.6)">Contact</span><h2 class="section-title">お問い合わせ</h2><p class="contact-lead">まずはご相談ください。初回相談（30分・無料）のお申し込みはこちらから。</p><form class="contact-form" onsubmit="return false;"><div class="form-row"><div class="form-group"><label>会社名 *</label><input type="text" placeholder="株式会社〇〇"></div><div class="form-group"><label>担当者名 *</label><input type="text" placeholder="山田 太郎"></div></div><div class="form-row"><div class="form-group"><label>メールアドレス *</label><input type="email" placeholder="example@company.co.jp"></div><div class="form-group"><label>従業員規模</label><select><option value="">選択してください</option><option>50人未満</option><option>50〜100人</option><option>100〜200人</option><option>200〜500人</option><option>500人以上</option></select></div></div><div class="form-group"><label>ご相談内容</label><textarea rows="5" placeholder="現在の課題・ご希望の対応内容などをご記入ください（任意）"></textarea></div><button type="submit" class="form-submit">送信する →</button></form></div></section>
+<footer><p>© 2025 大阪産業医事務所　｜　大阪府</p></footer>
+</body></html>
