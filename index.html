@@ -6,13 +6,13 @@
 <title>大阪の精神科医による産業医契約・休職復職対応｜大阪産業医事務所</title>
 <meta name="description" content="大阪の企業向けに、精神科医・産業医が産業医契約、メンタル不調対応、休職・復職判断、ラインケア研修を支援します。初回30分無料相談。">
 <meta name="robots" content="index, follow">
-<!-- canonical: 本番ドメイン確定後に設定 -->
-<!-- <link rel="canonical" href="https://example.com/"> -->
+<link rel="canonical" href="https://osaka-sangyoui.jp/">
 <meta property="og:title" content="大阪の精神科医による産業医契約｜大阪産業医事務所">
 <meta property="og:description" content="休職・復職判断、メンタル不調対応、ラインケア研修まで。精神科医・産業医が企業の人事対応を支援します。初回30分無料相談。">
 <meta property="og:type" content="website">
-<!-- og:url / og:image: 本番ドメイン確定後に設定 -->
-<!-- <meta property="og:url" content="https://example.com/"> -->
+<meta property="og:url" content="https://osaka-sangyoui.jp/">
+<!-- og:image: OGP画像作成後に設定 -->
+<!-- <meta property="og:image" content="https://osaka-sangyoui.jp/ogp.jpg"> -->
 <!-- <meta property="og:image" content="https://example.com/ogp.jpg"> -->
 <style>
   /* ===== RESET & BASE ===== */
@@ -911,25 +911,33 @@
       <div style="font-size:13px; font-weight:700; color:var(--teal); letter-spacing:0.08em; margin-bottom:10px; text-transform:uppercase;">初回相談でできること</div>
       <p style="font-size:15px; line-height:1.85; color:rgba(255,255,255,0.8);">現在の産業医体制・休職復職対応の課題・管理職からの相談状況をお聞きします。貴社に必要な支援内容を整理し、契約後のイメージをご説明します。</p>
     </div>
-    <form class="contact-form" onsubmit="return false;">
+    <form class="contact-form" action="https://formsubmit.co/medworkacademy@gmail.com" method="POST">
+      <!-- FormSubmit設定 -->
+      <input type="hidden" name="_subject" value="【大阪産業医事務所】お問い合わせが届きました">
+      <input type="hidden" name="_next" value="https://osaka-sangyoui.jp/thanks.html">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+      <!-- スパム対策 -->
+      <input type="text" name="_honey" style="display:none">
+
       <div class="form-row">
         <div class="form-group">
           <label>会社名 *</label>
-          <input type="text" placeholder="株式会社〇〇">
+          <input type="text" name="会社名" placeholder="株式会社〇〇" required>
         </div>
         <div class="form-group">
           <label>担当者名 *</label>
-          <input type="text" placeholder="山田 太郎">
+          <input type="text" name="担当者名" placeholder="山田 太郎" required>
         </div>
       </div>
       <div class="form-row">
         <div class="form-group">
           <label>メールアドレス *</label>
-          <input type="email" placeholder="example@company.co.jp">
+          <input type="email" name="メールアドレス" placeholder="example@company.co.jp" required>
         </div>
         <div class="form-group">
           <label>従業員規模</label>
-          <select>
+          <select name="従業員規模">
             <option value="">選択してください</option>
             <option>50人未満</option>
             <option>50〜100人</option>
@@ -941,7 +949,7 @@
       </div>
       <div class="form-group">
         <label>ご相談内容</label>
-        <textarea rows="5" placeholder="現在の課題・ご希望の対応内容などをご記入ください（任意）"></textarea>
+        <textarea name="ご相談内容" rows="5" placeholder="現在の課題・ご希望の対応内容などをご記入ください（任意）"></textarea>
       </div>
       <button type="submit" class="form-submit">送信する →</button>
     </form>
